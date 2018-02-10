@@ -55,7 +55,7 @@ Item {
             }
         }
     }
-
+/*
     ContentImport {
         id: contentImporter
 
@@ -69,7 +69,7 @@ Item {
             hide()
         }
     }
-
+*/
     ListItem.ThinDivider {
         id: divider
         anchors {

@@ -23,7 +23,7 @@ import QtContacts 5.0
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import Ubuntu.Telephony 0.1
-import Ubuntu.Content 1.3
+//import Ubuntu.Content 1.3
 import Ubuntu.History 0.1
 import "Stickers"
 
@@ -294,13 +294,13 @@ MainView {
     StickersModel {
         id: stickersModel
     }
-
+/*
     Connections {
         target: ContentHub
         onImportRequested: startImport(transfer)
         onShareRequested: startImport(transfer)
     }
-
+*/
     signal applicationReady
 
     function startsWith(string, prefix) {
