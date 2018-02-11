@@ -1,6 +1,6 @@
-telephony-service (0.1.1+gemian) stretch; urgency=medium
+messaging-app (0.1.1+gemian) stretch; urgency=medium
 
-  * Branching for gemian.
+  * Building for gemian.
 
  -- Adam Boardman <adamboardman@gmail.com>  Sun, 11 Feb 2018 11:56:03 +0000
 

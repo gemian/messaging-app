@@ -1,9 +1,8 @@
 Source: messaging-app
 Section: x11
 Priority: optional
-Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
-Build-Depends: apparmor:native,
-               cmake,
+Maintainer: Adam Boardman <adamboardman@gmail.com>
+Build-Depends: cmake,
                debhelper (>= 9),
                libnotify-dev,
                python3-flake8 (>= 2.2.2-1ubuntu4) | python3-flake8:native,
