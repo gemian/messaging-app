@@ -31,8 +31,6 @@ Standards-Version: 3.9.8
 Homepage: https://github.com/gemian/messaging-app
 Vcs-Git: https://github.com/gemian/messaging-app.git
 
-X-Ubuntu-Use-Langpack: yes
-
 Package: messaging-app
 Architecture: any
 Depends: ${misc:Depends},
