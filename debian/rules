@@ -17,35 +17,11 @@ export DEB_BUILD_PROFILES := cross
 endif
 
 %:
-	dh $@ --parallel --fail-missing --with translations
+	dh $@ --parallel --fail-missing
 
-apparmor:
-	aa-easyprof -m ./debian/messaging-app-apparmor.manifest --no-verify | \
-	egrep -v '(# Click packages|CLICK_DIR)' | \
-	sed 's/@{APP_PKGNAME}_@{APP_APPNAME}_@{APP_VERSION}/@{APP_PKGNAME}/g' | \
-	sed 's,Apps/@{APP_PKGNAME},Apps/messaging-app,g' | \
-	sed '/lttng-ust-/c\  \/{,var\/}run\/shm\/lttng-ust-* r,'  | \
-	sed '/dconf.user rw/c\  \/run\/user\/\[0-9\]*\/dconf\/user rw,' | \
-	sed 's,deny owner .*dconf/user r,owner @\{HOME\}/.config/dconf/user r,g' | \
-	egrep -v 'deny /run/udev/data/\*\* r,' | \
-	sed 's#^}$$#\n  /sys/class/ r,\n  /sys/class/input/ r,\n  /run/udev/data/** r,\n}#g' | \
-	egrep -v '^\s*deny /dev/ r,\s*$$' | \
-	sed 's#^\(\s*\)deny\(\s\+/{run,dev}/shm/pulse-shm\*\s\+w,\).*$$#\1owner\2#g' | \
-	sed 's#^}$$#\n  /dev/dri/ r,\n  /sys/devices/pci[0-9]*/**/config r,\n}#g' \
-	> ./debian/usr.bin.messaging-app
-	(head -n -2 ./debian/usr.bin.messaging-app; cat ./debian/messaging-app-apparmor.additions; \
-	echo } ) > ./debian/usr.bin.messaging-app2
-	mv ./debian/usr.bin.messaging-app2 ./debian/usr.bin.messaging-app
-ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
-	apparmor_parser -QTK ./debian/usr.bin.messaging-app
-endif
-
-override_dh_install: apparmor
+override_dh_install:
 	dh_install --fail-missing
 
-override_dh_installdeb:
-	dh_apparmor --profile-name=usr.bin.messaging-app -pmessaging-app
-	dh_installdeb
 
 override_dh_auto_test:
 ifneq ($(DEB_HOST_ARCH),$(findstring $(DEB_HOST_ARCH), $(testskip_architectures)))
@@ -55,8 +31,3 @@ ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
 endif
 endif
 
-override_dh_translations:
-	# Override dh_translations to work around http://pad.lv/1183262.
-	# Unfortunately, the default build directory is not exposed
-	# (see http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=601774).
-	$(MAKE) -C obj-$(DEB_HOST_GNU_TYPE) messaging-app.pot
