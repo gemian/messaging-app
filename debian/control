@@ -4,6 +4,8 @@ Priority: optional
 Maintainer: Adam Boardman <adamboardman@gmail.com>
 Build-Depends: cmake,
                debhelper (>= 9),
+               intltool,
+               extra-cmake-modules,
                libnotify-dev,
                python3-flake8 (>= 2.2.2-1ubuntu4) | python3-flake8:native,
                pkg-config,
