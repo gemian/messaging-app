@@ -20,6 +20,16 @@ endif
 	dh $@ --parallel --fail-missing
 
 override_dh_install:
+	# Remove private stuff
+	rm -rfv debian/tmp/usr/lib/python3/dist-packages/messaging_app/emulators.py
+	rm -rfv debian/tmp/usr/lib/python3/dist-packages/messaging_app/__init__.py
+	rm -rfv debian/tmp/usr/lib/python3/dist-packages/messaging_app/fixture_setup.py
+	rm -rfv debian/tmp/usr/lib/python3/dist-packages/messaging_app/helpers.py
+	rm -rfv debian/tmp/usr/lib/python3/dist-packages/messaging_app/testdata/history.sqlite
+	rm -rfv debian/tmp/usr/lib/python3/dist-packages/messaging_app/testdata/vcard.vcf
+	rm -rfv debian/tmp/usr/lib/python3/dist-packages/messaging_app/tests/__init__.py
+	rm -rfv debian/tmp/usr/lib/python3/dist-packages/messaging_app/tests/test_messaging.py
+
 	dh_install --fail-missing
 
 
