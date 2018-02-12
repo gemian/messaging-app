@@ -11,4 +11,3 @@ usr/share/messaging-app/AttachmentDelegates/*.qml
 usr/share/messaging-app/Dialogs/*.qml
 usr/share/messaging-app/Stickers/*.qml
 usr/bin/*messaging-app*
-debian/usr.bin.messaging-app etc/apparmor.d
