@@ -19,6 +19,7 @@
 import QtQuick 2.2
 import Ubuntu.Components 1.3
 //import Ubuntu.OnlineAccounts.Client 0.1
+import Ubuntu.Components.Popups 1.3
 import Qt.labs.settings 1.0
 
 Page {
@@ -29,6 +30,13 @@ Page {
     {
         if (onlineAccountHelper.item)
             onlineAccountHelper.item.run()
+        else {
+            Qt.inputMethod.hide()
+            var properties = {}
+            properties["title"] = i18n.tr("Not yet implemented")
+            properties["text"] = i18n.tr("First cut messages doesn't support online accounts")
+            PopupUtils.open(Qt.createComponent("Dialogs/InformationDialog.qml").createObject(settingsPage), settingsPage, properties)
+        }
     }
 
     readonly property var setMethods: {
@@ -112,11 +120,11 @@ Page {
 
     Component {
         id: settingDelegate
+
         ListItem {
             onClicked: {
                 layoutDelegate.item.activate()
                 settingsList.currentIndex = index
-
             }
             ListItemLayout {
                 title.text: modelData.data.description
