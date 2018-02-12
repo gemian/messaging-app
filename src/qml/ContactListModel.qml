@@ -76,20 +76,34 @@ ContactModel {
 
             filters: [
                 DetailFilter {
-                    id: nameFilter
-                    detail: (root.manager === "galera" ? ContactDetail.ExtendedDetail : ContactDetail.DisplayLabel)
-                    field: (root.manager === "galera" ? ExtendedDetail.Data : DisplayLabel.Label)
-                    value: (root.manager === "galera" ? contactTermFilter.value : contactTermFilter.value)
-                    matchFlags: DetailFilter.MatchContains
+                    id: firstNameFilter
+                    detail: ContactDetail.Name
+                    field: Name.FirstName
+                    matchFlags: Filter.MatchContains
+                    value: contactTermFilter.value
+                },
+                DetailFilter {
+                    id: middleNameFilter
+                    detail: ContactDetail.Name
+                    field: Name.MiddleName
+                    matchFlags: Filter.MatchContains
+                    value: contactTermFilter.value
+                },
+                DetailFilter {
+                    id: lastNameFilter
+                    detail: ContactDetail.Name
+                    field: Name.LastName
+                    matchFlags: Filter.MatchContains
+                    value: contactTermFilter.value
                 }
             ]
 
             onValueChanged: {
-                var containsLetter = Contacts.containsLetters(value)
-                if (containsLetter && (filters.length > 1)) {
-                    filters = [nameFilter]
-                } else if (!containsLetter) {
-                    filters = [nameFilter, phoneNumberFilter]
+                var containsOnlyNumbers = value.match(/^[0-9\+\s]+$/) !== null;
+                if (!containsOnlyNumbers && (filters.length > 3)) {
+                    filters = [firstNameFilter, middleNameFilter, lastNameFilter]
+                } else if (containsOnlyNumbers) {
+                    filters = [firstNameFilter, middleNameFilter, lastNameFilter, phoneNumberFilter]
                 }
             }
         },
