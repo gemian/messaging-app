@@ -396,10 +396,10 @@ FocusScope {
     /*!
       start an online account creation
     */
-    function createOnlineAccount(provider)
-    {
-        onlineAccountHelper.start(provider)
-    }
+    //function createOnlineAccount(provider)
+    //{
+    //    onlineAccountHelper.start(provider)
+    //}
 
     focus: true
 
@@ -533,18 +533,18 @@ FocusScope {
                     }
                 }
 
-                Repeater {
-                    model: onlineAccountHelper.status === Loader.Ready ? onlineAccountHelper.item.providerModel : []
-                    ContactListButtonDelegate {
-                        objectName: "%1.importFromOnlineAccountButton.%2".arg(root.objectName).arg(model.providerId)
+                //Repeater {
+                //    model: onlineAccountHelper.status === Loader.Ready ? onlineAccountHelper.item.providerModel : []
+                //    ContactListButtonDelegate {
+                //        objectName: "%1.importFromOnlineAccountButton.%2".arg(root.objectName).arg(model.providerId)
 
-                        expandIcon: true
-                        iconSource: model.iconName.indexOf("/") === 0 ?
-                            model.iconName : "image://theme/" + model.iconName
-                        labelText: i18n.dtr("address-book-app", "Import contacts from %1").arg(model.displayName)
-                        onClicked: root.createOnlineAccount(model.providerId)
-                    }
-                }
+                //        expandIcon: true
+                //        iconSource: model.iconName.indexOf("/") === 0 ?
+                //            model.iconName : "image://theme/" + model.iconName
+                //        labelText: i18n.dtr("address-book-app", "Import contacts from %1").arg(model.displayName)
+                //        onClicked: root.createOnlineAccount(model.providerId)
+                //    }
+                //}
 
                 // Import from sim card
                 ContactListButtonDelegate {
@@ -597,9 +597,9 @@ FocusScope {
         id: indicator
 
         readonly property bool isBusy: ((view.loading && !view.contactsLoaded) ||
-                                        (root.syncing && (view.count === 0)) ||
-                                        ((onlineAccountHelper.status == Loader.Ready) &&
-                                         (onlineAccountHelper.item.running)))
+                                        (root.syncing && (view.count === 0)))// ||
+                                        //((onlineAccountHelper.status == Loader.Ready) &&
+                                        // (onlineAccountHelper.item.running)))
 
         anchors.centerIn: view
         spacing: units.gu(2)
@@ -641,57 +641,57 @@ FocusScope {
         id: simList
     }
 
-    Loader {
-        id: onlineAccountHelper
-        objectName: "onlineAccountHelper"
+    //Loader {
+    //    id: onlineAccountHelper
+    //    objectName: "onlineAccountHelper"
 
-        property string createAccount: ""
-        property bool exitOnFinish: false
-        readonly property bool isSearching: (root.filterTerm && root.filterTerm !== "")
+    //    property string createAccount: ""
+    //    property bool exitOnFinish: false
+    //    readonly property bool isSearching: (root.filterTerm && root.filterTerm !== "")
         // if running on test mode does not load online account modules
-        readonly property string sourceFile: (typeof(runningOnTestMode) !== "undefined") ?
-                                      Qt.resolvedUrl("OnlineAccountsDummy.qml") :
-                                      Qt.resolvedUrl("OnlineAccountsHelper.qml")
+    //    readonly property string sourceFile: (typeof(runningOnTestMode) !== "undefined") ?
+    //                                  Qt.resolvedUrl("OnlineAccountsDummy.qml") :
+    //                                  Qt.resolvedUrl("OnlineAccountsHelper.qml")
 
-        function start(provider)
-        {
-            if (root.onlineAccountApplicationId !== "address-book-app") {
+    //    function start(provider)
+    //    {
+    //        if (root.onlineAccountApplicationId !== "address-book-app") {
                 // invoke address book app
-                Qt.openUrlExternally("addressbook:///createAccount?providerId=%1&callback=%2.desktop".arg(provider).arg(root.onlineAccountApplicationId))
-            } else {
-                if (item)
-                    item.setupExec(provider)
-                else
-                    createAccount = provider
-            }
-        }
+    //            Qt.openUrlExternally("addressbook:///createAccount?providerId=%1&callback=%2.desktop".arg(provider).arg(root.onlineAccountApplicationId))
+    //        } else {
+    //            if (item)
+    //                item.setupExec(provider)
+    //            else
+    //                createAccount = provider
+    //        }
+    //    }
 
-        anchors.fill: parent
-        asynchronous: true
-        source: root.showImportOptions &&
-                root.showImportFromAccountOption &&
-                (root.count === 0) &&
-                !view.favouritesIsSelected &&
-                !isSearching ? sourceFile : ""
-        onStatusChanged: {
-            if (createAccount && (status === Loader.Ready)) {
-                item.setupExec(createAccount)
-                createAccount = ""
-            }
-        }
+    //    anchors.fill: parent
+    //    asynchronous: true
+    //    source: root.showImportOptions &&
+    //            root.showImportFromAccountOption &&
+    //            (root.count === 0) &&
+    //            !view.favouritesIsSelected &&
+    //            !isSearching ? sourceFile : ""
+    //    onStatusChanged: {
+    //        if (createAccount && (status === Loader.Ready)) {
+    //            item.setupExec(createAccount)
+    //            createAccount = ""
+    //        }
+    //    }
 
-        Connections {
-            target: onlineAccountHelper.item ? onlineAccountHelper.item : null
-            onFinished: root.onlineAccountFinished()
-        }
+    //    Connections {
+    //        target: onlineAccountHelper.item ? onlineAccountHelper.item : null
+    //        onFinished: root.onlineAccountFinished()
+    //    }
 
-        Binding {
-            target: onlineAccountHelper.item
-            property: "applicationId"
-            value: root.onlineAccountApplicationId
-            when: onlineAccountHelper.status == Loader.Ready
-        }
-    }
+    //    Binding {
+    //        target: onlineAccountHelper.item
+    //        property: "applicationId"
+    //        value: root.onlineAccountApplicationId
+    //        when: onlineAccountHelper.status == Loader.Ready
+    //    }
+    //}
 
     Keys.onUpPressed: {
         //WORKAROUND: SDK does not allow us to disable focus for items due bug: #1514822
