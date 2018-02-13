@@ -51,6 +51,7 @@ Depends: ${misc:Depends},
          qml-module-qtmultimedia,
          qml-module-qtcontacts,
          qml-module-qtquick2,
+         qml-module-ofono,
          ttf-ancient-fonts-symbola,
 Description: messaging application for Ubuntu
  An application to send and receive messages.
