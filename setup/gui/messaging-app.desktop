@@ -215,4 +215,4 @@ Keywords[zh_TW]=Messages;SMS;MMS;Text Messages;Text
 Exec=messaging-app %u
 Terminal=false
 Icon=/snap/messaging-app/current/usr/share/messaging-app/assets/messaging-app.png
-MimeType=x-scheme-handler/sms;x-scheme-handler/message
+MimeType=x-scheme-handler/message
