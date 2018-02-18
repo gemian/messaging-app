@@ -54,7 +54,7 @@ Depends: ${misc:Depends},
          qml-module-qtquick2,
          qml-module-ofono,
          ttf-ancient-fonts-symbola,
-Description: messaging application for Ubuntu
+Description: messaging application
  An application to send and receive messages.
 
 Package: messaging-app-autopilot
