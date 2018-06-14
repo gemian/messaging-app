@@ -543,7 +543,6 @@ Page {
            return
         }
 
-        threadModel.markThreadsAsRead(messages.threads);
         var properties = {'accountId': threads[0].accountId, 'threadId': threads[0].threadId, 'chatType': threads[0].chatType}
         chatManager.acknowledgeAllMessages(properties)
     }
@@ -552,7 +551,7 @@ Page {
         if ((messages.chatType == HistoryEventModel.ChatTypeContact) &&
             (messages.threads.length > 0)) {
             var index = threadModel.indexOf(messages.threads[0].threadId, messages.threads[0].accountId)
-            if (index != -1) {
+            if (index !== -1) {
                 mainPage.selectMessage(index)
             }
         }

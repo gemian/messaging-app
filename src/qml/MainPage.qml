@@ -410,7 +410,11 @@ Page {
 
     onActiveFocusChanged: {
         if (activeFocus) {
-            threadList.currentItem.forceActiveFocus()
+            if (threadList.currentItem) {
+                threadList.currentItem.forceActiveFocus()
+            } else {
+                threadList.forceActiveFocus()
+            }
         }
     }
 
