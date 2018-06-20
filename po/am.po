@@ -6,17 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: messaging-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-21 11:02-0300\n"
-"PO-Revision-Date: 2016-09-02 14:23+0000\n"
-"Last-Translator: samson <Unknown>\n"
-"Language-Team: Amharic <am@li.org>\n"
+"PO-Revision-Date: 2018-05-27 14:12+0000\n"
+"Last-Translator: Samson <sambelet@yahoo.com>\n"
+"Language-Team: Amharic <https://translate.ubports.com/projects/ubports"
+"/messaging-app/am/>\n"
+"Language: am\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2016-12-13 05:38+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
 
 #. TRANSLATORS: %1 is the first recipient the message is sent to, %2 is the count of remaining recipients
 #: ../src/qml/ThreadDelegate.qml:71
@@ -114,7 +116,7 @@ msgstr "የሉም"
 
 #: ../src/qml/NewRecipientPage.qml:68
 msgid "Back"
-msgstr "ተመልሰዋል"
+msgstr "ወደ ኋላ"
 
 #: ../src/qml/Messages.qml:1063
 msgid "Busy"
@@ -163,7 +165,7 @@ msgstr "ማጥፊያ"
 
 #: ../src/qml/MessageInfoDialog.qml:64
 msgid "Deleted"
-msgstr "የጠፋ"
+msgstr "ጠፍቷል"
 
 #: ../src/qml/MessageInfoDialog.qml:54
 msgid "Delivered"
@@ -261,7 +263,7 @@ msgstr "መልእክት መላክ አይቻልም"
 
 #: ../src/qml/ComposeBar.qml:457 ../src/qml/MessageDelegate.qml:166
 msgid "MMS"
-msgstr "ኤም ኤም ኤስ"
+msgstr "MMS"
 
 #: ../src/qml/MessageInfoDialog.qml:90
 msgid "Message info"
@@ -363,8 +365,8 @@ msgid ""
 "<a href=\"system_settings\">System Settings &gt; Security &amp; Privacy</a>."
 msgstr ""
 "እባክዎን የ ሲም ካርዱን ይክፈቱ: ጥሪ ለማድረግ ወይንም መልእክቶች ለመላክ: ሲም ካርድ መክፈት ይችላሉ ከ ኔትዎርክ "
-"መጠቆሚያ በ መመልከቻው ከ ላይ በኩል ወይንም በመጎብ ኘት <a href=\"system_settings\">System "
-"Settings &gt; Security &amp; Privacy</a>."
+"መጠቆሚያ በ መመልከቻው ከ ላይ በኩል ወይንም በመጎብ ኘት <a href=\"system_settings\">ስርአት ማሰናጃዎች "
+"&gt; Security &amp; Privacy</a>."
 
 #: ../src/qml/MessageInfoDialog.qml:62 ../src/qml/MessageInfoDialog.qml:124
 msgid "Read"
@@ -411,7 +413,7 @@ msgstr "ተልኳል"
 
 #: ../src/qml/MainPage.qml:101 ../src/qml/SettingsPage.qml:25
 msgid "Settings"
-msgstr "ማሰናጃዎች"
+msgstr "ማሰናጃ"
 
 #: ../src/qml/AttachmentDelegates/Previewer.qml:93
 #: ../src/qml/AttachmentDelegates/PreviewerMultipleContacts.qml:99
@@ -524,7 +526,7 @@ msgstr "የ በረራ ዘዴ ማሰናከል አለብዎት"
 
 #: ../src/qml/ComposeBar.qml:164
 msgid "You have to press and hold the record icon"
-msgstr "እርስዎ ተጭነው መያዝ አለብዎት የ መቅረጫ ምልክት"
+msgstr "እርስዎ መጫን እና መያዝ አለብዎት የ መቅረጫ ምልክት:"
 
 #: ../src/qml/Messages.qml:275 ../src/qml/SendMessageValidator.qml:213
 msgid "You need to select a SIM card"

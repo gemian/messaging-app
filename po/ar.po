@@ -6,18 +6,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: messaging-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-21 11:02-0300\n"
-"PO-Revision-Date: 2014-05-22 08:50+0000\n"
-"Last-Translator: Ibrahim Saed <ibraheem5000@gmail.com>\n"
-"Language-Team: Arabic <ar@li.org>\n"
+"PO-Revision-Date: 2018-02-05 05:18+0000\n"
+"Last-Translator: ubports_arabic <ubportsarabic@gmail.com>\n"
+"Language-Team: Arabic <https://translate.ubports.com/projects/ubports"
+"/messaging-app/ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n % 100 >= "
-"3 && n % 100 <= 10 ? 3 : n % 100 >= 11 && n % 100 <= 99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2016-12-13 05:38+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
 
 #. TRANSLATORS: %1 is the first recipient the message is sent to, %2 is the count of remaining recipients
 #: ../src/qml/ThreadDelegate.qml:71
@@ -158,7 +160,7 @@ msgstr "اتصل"
 #: ../src/qml/MessagingContactEditorPage.qml:36
 #: ../src/qml/NewRecipientPage.qml:135
 msgid "Cancel"
-msgstr "إلغاء"
+msgstr "ألغاء"
 
 #. TRANSLATORS: %1 refers to the SIM card name or account name
 #: ../src/qml/Dialogs/SetDefaultSIMCardDialog.qml:29
@@ -171,7 +173,7 @@ msgstr "تغيير جميع ارتباط الرسائل إلى %1 ؟"
 #: ../src/qml/Dialogs/NoNetworkDialog.qml:32
 #: ../src/qml/MessageInfoDialog.qml:133
 msgid "Close"
-msgstr "إغلاق"
+msgstr "اغلاق"
 
 #: ../src/qml/EmptyState.qml:50
 msgid "Compose a new message by swiping up from the bottom of the screen."
@@ -208,7 +210,7 @@ msgstr ""
 
 #: ../src/qml/MessagingContactViewPage.qml:73
 msgid "Edit"
-msgstr "تعديل"
+msgstr "تحرير"
 
 #: ../src/qml/SettingsPage.qml:33
 msgid "Enable MMS group chat"
@@ -248,7 +250,7 @@ msgstr "من"
 
 #: ../src/qml/ListItemDemo.qml:50
 msgid "Got it"
-msgstr "تم"
+msgstr "فهمتك"
 
 #: ../src/qml/MessageInfoDialog.qml:84
 msgid "Group"
@@ -361,7 +363,7 @@ msgstr ""
 #: ../src/qml/Dialogs/NoMicrophonePermission.qml:49
 #: ../src/qml/Dialogs/SimLockedDialog.qml:49
 msgid "Ok"
-msgstr "موافق"
+msgstr "تمام"
 
 #: ../src/qml/Messages.qml:1057
 msgid "Online"
@@ -424,11 +426,11 @@ msgstr "حفظ"
 
 #: ../src/qml/MainPage.qml:93 ../src/qml/NewRecipientPage.qml:108
 msgid "Search"
-msgstr "بحث"
+msgstr "البحث"
 
 #: ../src/qml/MainPage.qml:56 ../src/qml/NewRecipientPage.qml:97
 msgid "Search..."
-msgstr "بحث..."
+msgstr "البحث ..."
 
 #: ../src/qml/MessageInfoDialog.qml:114
 msgid "Sent"
@@ -436,7 +438,7 @@ msgstr "مرسلة"
 
 #: ../src/qml/MainPage.qml:101 ../src/qml/SettingsPage.qml:25
 msgid "Settings"
-msgstr "الإعدادات"
+msgstr "الضبط"
 
 #: ../src/qml/AttachmentDelegates/Previewer.qml:93
 #: ../src/qml/AttachmentDelegates/PreviewerMultipleContacts.qml:99
@@ -454,7 +456,7 @@ msgstr "اسحب للحذف"
 
 #: ../src/qml/ListItemDemo.qml:177
 msgid "Swipe to reveal actions"
-msgstr "اسحب لإظهار الإجراءات"
+msgstr "انتقد للكشف عن الإجراءات"
 
 #: ../src/qml/MessageInfoDialog.qml:56
 msgid "Temporarily Failed"
@@ -467,11 +469,11 @@ msgstr "تم نسخ الرسالة النصية إلى الحافظة"
 #: ../src/qml/Dialogs/NoNetworkDialog.qml:29
 #, qt-format
 msgid "There is currently no network on %1"
-msgstr "لا توجد شبكة حاليا في %1"
+msgstr "لا توجد حاليا شبكة على ٪ 1"
 
 #: ../src/qml/Dialogs/NoNetworkDialog.qml:29
 msgid "There is currently no network."
-msgstr "لا توجد شبكة حاليا."
+msgstr "لا يوجد حاليا أي شبكة."
 
 #: ../src/qml/MessageInfoDialog.qml:103
 msgid "To"
@@ -495,7 +497,7 @@ msgstr ""
 
 #: ../src/qml/MessageInfoDialog.qml:72 ../src/qml/MessageInfoDialog.qml:75
 msgid "Unknown"
-msgstr "مجهول"
+msgstr "غير معروف"
 
 #: ../src/qml/AttachmentDelegates/ContactDelegate.qml:48
 #: ../src/qml/ThumbnailContact.qml:44
@@ -531,11 +533,11 @@ msgstr "اكتب رسالة..."
 #: ../src/qml/Dialogs/MMSEnableDialog.qml:41
 #: ../src/qml/Dialogs/SetDefaultSIMCardDialog.qml:48
 msgid "Yes"
-msgstr "نعم"
+msgstr "اجعل"
 
 #: ../src/qml/dateUtils.js:49
 msgid "Yesterday"
-msgstr "أمس"
+msgstr "امس"
 
 #: ../src/qml/Dialogs/FileSizeWarningDialog.qml:37
 msgid ""
@@ -553,7 +555,7 @@ msgstr ""
 
 #: ../src/qml/Messages.qml:275 ../src/qml/SendMessageValidator.qml:213
 msgid "You need to select a SIM card"
-msgstr "عليك أن تختار بطاقة SIM"
+msgstr "تحتاج إلى تحديد بطاقة سيم"
 
 #: ../src/qml/AccountSectionDelegate.qml:96
 #, qt-format
@@ -567,8 +569,8 @@ msgstr "لقد قمت بالتحويل إلى %1 في %2"
 #~ "Select a default SIM for all outgoing messages. You can always alter your "
 #~ "choice in <a href=\"system_settings\">System Settings</a>."
 #~ msgstr ""
-#~ "اختر بطاقة SIM الافتراضية لجميع الرسائل الصادرة. يمكنك تغيير اختيارك دائما "
-#~ "من خلال <a href=\"system_settings\">إعدادات النظام</a>."
+#~ "اختر بطاقة SIM الافتراضية لجميع الرسائل الصادرة. يمكنك تغيير اختيارك "
+#~ "دائما من خلال <a href=\"system_settings\">إعدادات النظام</a>."
 
 #~ msgid "Switch to default SIM:"
 #~ msgstr "التحويل إلى بطاقة SIM الافتراضية:"

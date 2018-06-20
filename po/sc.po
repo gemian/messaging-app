@@ -1,24 +1,23 @@
-# Spanish translation for messaging-app
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
-# This file is distributed under the same license as the messaging-app package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: messaging-app\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-21 11:02-0300\n"
-"PO-Revision-Date: 2017-11-26 10:20+0000\n"
-"Last-Translator: advocatux <advocatux@airpost.net>\n"
-"Language-Team: Spanish <https://translate.ubports.com/projects/ubports"
-"/messaging-app/es/>\n"
-"Language: es\n"
+"PO-Revision-Date: 2018-05-29 12:05+0000\n"
+"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
+"Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
+"/messaging-app/sc/>\n"
+"Language: sc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.15\n"
-"X-Launchpad-Export-Date: 2016-12-13 05:38+0000\n"
 
 #. TRANSLATORS: %1 is the first recipient the message is sent to, %2 is the count of remaining recipients
 #: ../src/qml/ThreadDelegate.qml:52
@@ -30,22 +29,22 @@ msgstr "%1 + %2"
 #, qt-format
 msgid "%1 hour call"
 msgid_plural "%1 hours call"
-msgstr[0] "Llamada de %1 hora"
-msgstr[1] "Llamada de %1 horas"
+msgstr[0] "Mutida de %1 ora"
+msgstr[1] "Mutida de %1 oras"
 
 #: ../src/qml/dateUtils.js:67
 #, qt-format
 msgid "%1 minute call"
 msgid_plural "%1 minutes call"
-msgstr[0] "Llamada de %1 minuto"
-msgstr[1] "Llamada de %1 minutos"
+msgstr[0] "Mutida de %1 minutu"
+msgstr[1] "Mutida de %1 minutos"
 
 #: ../src/qml/dateUtils.js:69
 #, qt-format
 msgid "%1 second call"
 msgid_plural "%1 seconds call"
-msgstr[0] "Llamada de %1 segundo"
-msgstr[1] "Llamada de %1 segundos"
+msgstr[0] "Mutida de %1 segundu"
+msgstr[1] "Mutida de %1 segundos"
 
 #: ../src/qml/MessagingBottomEdge.qml:38
 msgid "+"
@@ -53,62 +52,62 @@ msgstr "+"
 
 #: ../src/qml/AudioRecordingBar.qml:156
 msgid "<<< Swipe to cancel"
-msgstr "<<< Deslice para cancelar"
+msgstr "<<< Iscurre pro annullare"
 
 #: ../src/qml/MessageInfoDialog.qml:60
 msgid "Accepted"
-msgstr "Aceptado"
+msgstr "Atzetadu"
 
 #: ../src/qml/Messages.qml:652
 msgid "Add"
-msgstr "Añadir"
+msgstr "Agiunghe"
 
 #: ../src/qml/NewRecipientPage.qml:55
 msgid "Add recipient"
-msgstr "Añadir destinatario"
+msgstr "Agiunghe destinatàriu"
 
 #: ../src/qml/NewRecipientPage.qml:77
 msgid "All"
-msgstr "Todo"
+msgstr "Totu"
 
 #: ../src/qml/ThreadDelegate.qml:94
 #, qt-format
 msgid "Attachment: %1 audio clip"
 msgid_plural "Attachments: %1 audio clips"
-msgstr[0] "Adjunto: %1 archivo de audio"
-msgstr[1] "Adjuntos: %1 archivos de audio"
+msgstr[0] "Allegadu: %1 clip àudio"
+msgstr[1] "Allegados: %1 clip àudio"
 
 #: ../src/qml/ThreadDelegate.qml:91
 #, qt-format
 msgid "Attachment: %1 contact"
 msgid_plural "Attachments: %1 contacts"
-msgstr[0] "Adjunto: %1 contacto"
-msgstr[1] "Adjuntos: %1 contactos"
+msgstr[0] "Allegadu: %1 cuntatu"
+msgstr[1] "Allegados: %1 cuntatos"
 
 #: ../src/qml/ThreadDelegate.qml:97
 #, qt-format
 msgid "Attachment: %1 file"
 msgid_plural "Attachments: %1 files"
-msgstr[0] "Adjunto: %1 archivo"
-msgstr[1] "Adjuntos: %1 archivos"
+msgstr[0] "Allegadu: %1 archìviu"
+msgstr[1] "Allegados: %1 archìvios"
 
 #: ../src/qml/ThreadDelegate.qml:85
 #, qt-format
 msgid "Attachment: %1 image"
 msgid_plural "Attachments: %1 images"
-msgstr[0] "Adjunto: %1 imagen"
-msgstr[1] "Adjuntos: %1 imágenes"
+msgstr[0] "Allegadu: %1 immàgine"
+msgstr[1] "Allegados: %1 immàgines"
 
 #: ../src/qml/ThreadDelegate.qml:88
 #, qt-format
 msgid "Attachment: %1 video"
 msgid_plural "Attachments: %1 videos"
-msgstr[0] "Adjunto: %1 vídeo"
-msgstr[1] "Adjuntos: %1 vídeos"
+msgstr[0] "Allegadu: %1 vìdeu"
+msgstr[1] "Allegados: %1 vìdeos"
 
 #: ../src/qml/MMS/MMSDefault.qml:28
 msgid "Audio attachment not supported"
-msgstr "No se admiten audios adjuntos"
+msgstr "S'allegadu àudio no est cumpatìbile"
 
 #: ../src/qml/Messages.qml:890
 msgid "Away"
@@ -116,150 +115,146 @@ msgstr "Ausente"
 
 #: ../src/qml/NewRecipientPage.qml:64
 msgid "Back"
-msgstr "Atrás"
+msgstr "In segus"
 
 #: ../src/qml/Messages.qml:892
 msgid "Busy"
-msgstr "Ocupado"
+msgstr "Ocupadu"
 
 #: ../src/qml/Messages.qml:641 ../src/qml/Messages.qml:723
 msgid "Call"
-msgstr "Llamar"
+msgstr "Muti"
 
 #: ../src/qml/MMS/Previewer.qml:62 ../src/qml/MainPage.qml:128
 #: ../src/qml/Messages.qml:464 ../src/qml/Messages.qml:478
 #: ../src/qml/MessagingContactEditorPage.qml:36
 #: ../src/qml/NewRecipientPage.qml:131 ../src/qml/SettingsPage.qml:56
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Annulla"
 
 #. TRANSLATORS: %1 refers to the SIM card name or account name
 #: ../src/qml/Dialogs/SetDefaultSIMCardDialog.qml:29
 #, qt-format
 msgid "Change all Messaging associations to %1?"
-msgstr "¿Cambiar todas las asociaciones de mensajes a %1?"
+msgstr ""
 
 #: ../src/qml/Dialogs/InformationDialog.qml:29
 #: ../src/qml/Dialogs/NoDefaultSIMCardDialog.qml:47
 #: ../src/qml/MessageInfoDialog.qml:133 ../src/qml/Messages.qml:985
 msgid "Close"
-msgstr "Cerrar"
+msgstr "Serra"
 
 #: ../src/qml/EmptyState.qml:50
 msgid "Compose a new message by swiping up from the bottom of the screen."
-msgstr ""
-"Redacte un mensaje nuevo deslizando hacia arriba desde la parte inferior de "
-"la pantalla."
+msgstr "Cumpone unu messàgiu nou iscurrende dae bàsciu a susu de s'ischermu."
 
 #: ../src/qml/AttachmentPanel.qml:155 ../src/qml/Messages.qml:734
 msgid "Contact"
-msgstr "Contacto"
+msgstr "Cuntatu"
 
 #: ../src/qml/MessagesListView.qml:136 ../src/qml/SwipeItemDemo.qml:185
 msgid "Copy"
-msgstr "Copiar"
+msgstr "Còpia"
 
 #: ../src/qml/MessageDelegateFactory.qml:45 ../src/qml/ThreadDelegate.qml:107
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Cantzella"
 
 #: ../src/qml/MessageInfoDialog.qml:64
 msgid "Deleted"
-msgstr "Eliminado"
+msgstr "Cantzelladu"
 
 #: ../src/qml/MessageInfoDialog.qml:54
 msgid "Delivered"
-msgstr "Entregado"
+msgstr "Cunsignadu"
 
 #: ../src/qml/Dialogs/SetDefaultSIMCardDialog.qml:64
 msgid "Don't ask again"
-msgstr "No volver a preguntar"
+msgstr "Non ddu torres a domandare"
 
 #: ../src/qml/Dialogs/FileSizeWarningDialog.qml:60
 msgid "Don't show again"
-msgstr "No mostrar de nuevo"
+msgstr "Non lu torres a ammustrare"
 
 #: ../src/qml/MessagingContactViewPage.qml:72
 msgid "Edit"
-msgstr "Editar"
+msgstr "Modìfica"
 
 #: ../src/qml/SettingsPage.qml:31
 msgid "Enable MMS group chat"
-msgstr "Activar chats de grupo en MMS"
+msgstr "Ativa is tzarradas de grupu MMS"
 
 #: ../src/qml/MessageInfoDialog.qml:58
 msgid "Failed"
-msgstr "Falló"
+msgstr "Faddina"
 
 #: ../src/qml/Messages.qml:286
 msgid "Failed to send the message"
-msgstr "No se pudo enviar el mensaje"
+msgstr "Non s'est pòdidu imbiare su messàgiu"
 
 #: ../src/qml/MessageDelegateFactory.qml:148
 msgid "Failed!"
-msgstr "¡Falló!"
+msgstr "Faddina!"
 
 #: ../src/qml/NewRecipientPage.qml:77
 msgid "Favorites"
-msgstr "Favoritos"
+msgstr "Preferidos"
 
 #: ../src/qml/Dialogs/FileSizeWarningDialog.qml:26
 msgid "File size warning"
-msgstr "Alerta sobre el tamaño del archivo"
+msgstr "Avisu de mannària de s'archìviu"
 
 #: ../src/qml/MMS/MMSDefault.qml:33
 msgid "File type not supported"
-msgstr "Tipo de archivo no admitido"
+msgstr "Su tipu de archìviu no est cumpatìbile"
 
 #: ../src/qml/MessagesListView.qml:143
 msgid "Forward"
-msgstr "Reenviar"
+msgstr "Torra a imbiare"
 
 #: ../src/qml/MessageInfoDialog.qml:97
 msgid "From"
-msgstr "Desde"
+msgstr "Dae"
 
 #: ../src/qml/SwipeItemDemo.qml:78
 msgid "Got it"
-msgstr "De acuerdo"
+msgstr "Andat bene"
 
 #: ../src/qml/MessageInfoDialog.qml:84
 msgid "Group"
-msgstr "Grupo"
+msgstr "Grupu"
 
 #. TRANSLATORS: %1 refers to the number of participants in a group chat
 #: ../src/qml/Messages.qml:626
 #, qt-format
 msgid "Group (%1)"
-msgstr "Grupo (%1)"
+msgstr "Grupu (%1)"
 
 #: ../src/qml/Dialogs/NoDefaultSIMCardDialog.qml:38
 msgid ""
 "If you wish to edit your SIM and other mobile preferences, please visit <a "
 "href=\"system_settings\">System Settings</a>."
 msgstr ""
-"Si quiere editar la SIM u otras preferencias, visite la <a href="
-"\"system_settings\">Configuración del Sistema</a>."
 
 #: ../src/qml/AttachmentPanel.qml:104
 msgid "Image"
-msgstr "Imagen"
+msgstr "Immàgine"
 
 #: ../src/qml/MMS/PreviewerImage.qml:37
 msgid "Image Preview"
-msgstr "Imagen previa"
+msgstr "Pre-visualizatzione de s'immàgine"
 
 #: ../src/qml/MessagesListView.qml:111 ../src/qml/SwipeItemDemo.qml:177
 msgid "Info"
-msgstr "Información"
+msgstr "Informatziones"
 
 #: ../src/qml/Messages.qml:277
 msgid "It is not possible to send messages in flight mode"
-msgstr "Los mensajes no se pueden enviar en el modo avión"
+msgstr "Non faghet a imbiare immàgines in modalidade aèreu"
 
 #: ../src/qml/Messages.qml:285
 msgid "It is not possible to send the message"
-msgstr "No es posible enviar el mensaje"
+msgstr "Non faghet a imbiare su messàgiu"
 
 #: ../src/qml/MessagesListView.qml:114
 msgid "MMS"
@@ -267,93 +262,93 @@ msgstr "MMS"
 
 #: ../src/qml/MessageInfoDialog.qml:90
 msgid "Message info"
-msgstr "Información del mensaje"
+msgstr "Informatziones de su messàgiu"
 
 #: ../src/qml/MainPage.qml:68
 msgid "Messages"
-msgstr "Mensajes"
+msgstr "Messàgios"
 
 #: ../src/messaging-app.desktop.in.in.h:4
 msgid "Messages;SMS;MMS;Text Messages;Text"
-msgstr "Mensajes;SMS;MMS;Mensajes de texto;Texto"
+msgstr "Messàgios;SMS;MMS;messàgiu de testu;testu"
 
 #: ../src/messaging-app.desktop.in.in.h:1
 msgid "Messaging"
-msgstr "Mensajería"
+msgstr "Messagìstica"
 
 #: ../src/messaging-app.desktop.in.in.h:2
 msgid "Messaging App"
-msgstr "Aplicación Mensajería"
+msgstr "Aplicatzione de messagìstica"
 
 #: ../src/messagingapplication.cpp:204 ../src/messaging-app.desktop.in.in.h:3
 msgid "Messaging application"
-msgstr "Aplicación Mensajería"
+msgstr "Aplicatzione de messagìstica"
 
 #: ../src/qml/MMSDelegate.qml:249
 msgid "Missing message data"
-msgstr "Datos del mensaje no disponibles"
+msgstr "Ammancant is datos de su messàgiu"
 
 #: ../src/qml/MessageInfoDialog.qml:82 ../src/qml/MessageInfoDialog.qml:99
 msgid "Myself"
-msgstr "Yo"
+msgstr "Deo etotu"
 
 #: ../src/qml/Messages.qml:497
 msgid "New Message"
-msgstr "Mensaje nuevo"
+msgstr "Messàgiu nou"
 
 #: ../src/qml/MainPage.qml:105 ../src/qml/MainPage.qml:236
 msgid "New message"
-msgstr "Nuevo mensaje"
+msgstr "Messàgiu nou"
 
 #: ../src/qml/Dialogs/SetDefaultSIMCardDialog.qml:39
 msgid "No"
-msgstr "No"
+msgstr "Nono"
 
 #: ../src/qml/Messages.qml:282
 msgid "No SIM card"
-msgstr "Sin tarjeta SIM"
+msgstr "Ammancat s'ischeda SIM"
 
 #: ../src/qml/Messages.qml:279
 msgid "No SIM card selected"
-msgstr "No se seleccionó ninguna SIM"
+msgstr "Peruna carta SIM seletzionada"
 
 #: ../src/qml/Messages.qml:981
 msgid "No network"
-msgstr "Sin servicio"
+msgstr "Peruna rete"
 
 #: ../src/qml/Dialogs/NoMicrophonePermission.qml:26
 msgid "No permission to access microphone"
-msgstr "No se ha permitido acceder al micrófono"
+msgstr "Non tenes permissos pro atzèdere a su micròfonu"
 
 #: ../src/qml/Messages.qml:888
 msgid "Offline"
-msgstr "Sin conexión"
+msgstr "Foras de lìnia"
 
 #: ../src/qml/Dialogs/FileSizeWarningDialog.qml:45
 #: ../src/qml/Dialogs/NoMicrophonePermission.qml:49
 #: ../src/qml/Dialogs/SimLockedDialog.qml:49
 msgid "Ok"
-msgstr "Aceptar"
+msgstr "AB"
 
 #: ../src/qml/Messages.qml:886
 msgid "Online"
-msgstr "Conectado"
+msgstr "In lìnia"
 
 #: ../src/qml/MessageInfoDialog.qml:66
 msgid "Pending"
-msgstr "Pendientes"
+msgstr ""
 
 #: ../src/qml/Dialogs/NoMicrophonePermission.qml:37
 msgid ""
 "Please grant access on <a href=\"system_settings\">System Settings &gt; "
 "Security &amp; Privacy</a>."
 msgstr ""
-"Conceda el permiso en <a href=\"system_settings\">Configuración del sistema "
-"&gt; Seguridad y privacidad</a>."
+"Permite s'atzessu a <a href=\"system_settings\">Cunfiguratziones de sistema "
+"&gt; Seguresa e riservadesa</a>."
 
 #: ../src/qml/Messages.qml:283
 msgid "Please insert a SIM card and try again."
-msgstr "Por favor, inserte una tarjeta SIM e inténtelo de nuevo."
+msgstr "Inserta un'ischeda SIM e torra a proare."
 
 #: ../src/qml/Dialogs/SimLockedDialog.qml:37
 msgid ""
@@ -361,30 +356,30 @@ msgid ""
 "SIM card from the Network Indicator at the top of the screen or by visiting "
 "<a href=\"system_settings\">System Settings &gt; Security &amp; Privacy</a>."
 msgstr ""
-"Desbloquee la tarjeta SIM para llamar o enviar un mensaje. Puede hacerlo "
-"desde el indicador de red en la parte superior de la pantalla o visitando <a "
-"href=\"system_settings\">Configuración del sistema &gt; Seguridad y "
-"privacidad</a>."
+"Isbloca s'ischeda SIM pro fàghere mutidas o imbiare messàgios. Podes "
+"isblocare sa SIM tua tràmite s'indicadore de rete situadu in s'ala superiora "
+"de s'ischermu o bisitende <a href=\"system_settings\">Cunfiguratziones de "
+"sistema &gt; Seguresa e riservadesa</a>."
 
 #: ../src/qml/MessageInfoDialog.qml:62 ../src/qml/MessageInfoDialog.qml:124
 msgid "Read"
-msgstr "Leídos"
+msgstr "Leghe"
 
 #: ../src/qml/MessageInfoDialog.qml:70 ../src/qml/MessageInfoDialog.qml:119
 msgid "Received"
-msgstr "Recibidos"
+msgstr "Retzidu"
 
 #: ../src/qml/ComposeBar.qml:137
 msgid "Remove"
-msgstr "Eliminar"
+msgstr "Fùlia"
 
 #: ../src/qml/MessagesListView.qml:129 ../src/qml/SwipeItemDemo.qml:181
 msgid "Retry"
-msgstr "Volver a intentar"
+msgstr "Torra·bi a proare"
 
 #: ../src/qml/Dialogs/SimLockedDialog.qml:26
 msgid "SIM Card is locked"
-msgstr "La tarjeta SIM está bloqueada"
+msgstr "Sa carta SIM est blocada"
 
 #: ../src/qml/MessagesListView.qml:114
 msgid "SMS"
@@ -394,62 +389,62 @@ msgstr "SMS"
 #: ../src/qml/MMS/PreviewerMultipleContacts.qml:90
 #: ../src/qml/MessagingContactEditorPage.qml:48
 msgid "Save"
-msgstr "Guardar"
+msgstr "Sarva"
 
 #: ../src/qml/NewRecipientPage.qml:104
 msgid "Search"
-msgstr "Buscar"
+msgstr "Chirca"
 
 #: ../src/qml/MainPage.qml:52 ../src/qml/NewRecipientPage.qml:93
 msgid "Search..."
-msgstr "Buscar..."
+msgstr "Chirca..."
 
 #: ../src/qml/MessageInfoDialog.qml:114
 msgid "Sent"
-msgstr "Enviado"
+msgstr "Imbiadu"
 
 #: ../src/qml/MainPage.qml:96 ../src/qml/SettingsPage.qml:25
 msgid "Settings"
-msgstr "Configuración"
+msgstr "Cunfiguratzione"
 
 #: ../src/qml/MMS/Previewer.qml:93
 #: ../src/qml/MMS/PreviewerMultipleContacts.qml:98
 #: ../src/qml/MessagingContactViewPage.qml:61
 msgid "Share"
-msgstr "Compartir"
+msgstr "Cumpartzi"
 
 #: ../src/qml/MessageInfoDialog.qml:129
 msgid "Status"
-msgstr "Estado"
+msgstr "Istadu"
 
 #: ../src/qml/SwipeItemDemo.qml:256
 msgid "Swipe to delete"
-msgstr "Deslice para eliminar"
+msgstr "Iscurre pro cantzellare"
 
 #: ../src/qml/SwipeItemDemo.qml:206
 msgid "Swipe to reveal actions"
-msgstr "Deslice para mostrar acciones"
+msgstr "Iscurre pro ammustrare atziones"
 
 #: ../src/qml/MessageInfoDialog.qml:56
 msgid "Temporarily Failed"
-msgstr "Falló temporalmente"
+msgstr ""
 
 #: ../src/qml/MMSDelegate.qml:85 ../src/qml/SMSDelegate.qml:56
 msgid "Text message copied to clipboard"
-msgstr "Mensaje copiado en el portapapeles"
+msgstr "Su messàgiu est istadu copiadu a sa punta de billete"
 
 #: ../src/qml/Messages.qml:982
 #, qt-format
 msgid "There is currently no network on %1"
-msgstr "Actualmente sin servicio en %1"
+msgstr "Peruna rete in %1"
 
 #: ../src/qml/Messages.qml:982
 msgid "There is currently no network."
-msgstr "No hay servicio actualmente."
+msgstr "Peruna rete."
 
 #: ../src/qml/MessageInfoDialog.qml:103
 msgid "To"
-msgstr "Hasta"
+msgstr "A"
 
 #: ../src/qml/MultiRecipientInput.qml:149
 msgid "To:"
@@ -457,101 +452,78 @@ msgstr "A:"
 
 #: ../src/qml/dateUtils.js:44
 msgid "Today"
-msgstr "Hoy"
+msgstr "Oe"
 
 #: ../src/qml/MessageInfoDialog.qml:93
 msgid "Type"
-msgstr "Tipo"
+msgstr "Genia"
 
 #: ../src/qml/Messages.qml:882
 msgid "Typing.."
-msgstr "Tecleando..."
+msgstr "Iscriende..."
 
 #: ../src/qml/MessageInfoDialog.qml:72 ../src/qml/MessageInfoDialog.qml:75
 msgid "Unknown"
-msgstr "Desconocido"
+msgstr "Disconnotu"
 
 #: ../src/qml/MMS/MMSContact.qml:48 ../src/qml/ThumbnailContact.qml:44
 msgid "Unknown contact"
-msgstr "Contacto desconocido"
+msgstr "Cuntatu disconnotu"
 
 #: ../src/qml/AttachmentPanel.qml:117
 msgid "Video"
-msgstr "Vídeo"
+msgstr "Vìdeu"
 
 #: ../src/qml/MMS/PreviewerVideo.qml:32
 msgid "Video Preview"
-msgstr "Previsualizar vídeo"
+msgstr "Pre-visualizatzione de su vìdeu"
 
 #: ../src/qml/MMS/MMSDefault.qml:31
 msgid "Video attachment not supported"
-msgstr "No se admiten vídeos adjuntos"
+msgstr "S'allegadu vìdeu no est cumpatìbile"
 
 #: ../src/qml/Dialogs/NoDefaultSIMCardDialog.qml:27
 msgid "Welcome to your Messaging app!"
-msgstr "¡Bienvenido a la aplicación de Mensajes!"
+msgstr "Ti donamus su benebènnidu a s'aplicatzione de messagìstica!"
 
 #: ../src/qml/SwipeItemDemo.qml:161
 msgid "Welcome to your Ubuntu messaging app."
-msgstr "Esta es la aplicación de mensajería de Ubuntu."
+msgstr "Ti donamus su benebènnidu a s'aplicatzione de messagìstica de Ubuntu."
 
 #: ../src/qml/ComposeBar.qml:424
 msgid "Write a message..."
-msgstr "Escriba el mensaje…"
+msgstr "Iscrie unu messàgiu..."
 
 #: ../src/qml/Dialogs/SetDefaultSIMCardDialog.qml:48
 msgid "Yes"
-msgstr "Sí"
+msgstr "Eja"
 
 #: ../src/qml/dateUtils.js:46
 msgid "Yesterday"
-msgstr "Ayer"
+msgstr "Eris"
 
 #: ../src/qml/Dialogs/FileSizeWarningDialog.qml:37
 msgid ""
 "You are trying to send big files (over 300Kb). Some operators might not be "
 "able to send it."
 msgstr ""
-"Ha intentado enviar archivos grandes (mayores que 300 kB). Puede que algunas "
-"operadoras no puedan enviarlos."
+"Ses intentende de imbiare archìvios mannos (prus de 300Kb). Podet èssere chi "
+"carchi operadore non lu potzat imbiare."
 
 #: ../src/qml/Messages.qml:276
 msgid "You have to disable flight mode"
-msgstr "Debe desactivar el modo avión"
+msgstr "Disativa sa modalidade aèreu"
 
 #: ../src/qml/ComposeBar.qml:161
 msgid "You have to press and hold the record icon"
-msgstr "Presione y mantenga el icono de grabación"
+msgstr "Incarca e mantene incarcada s'icona de registratzione"
 
 #: ../src/qml/Messages.qml:280
 msgid "You need to select a SIM card"
-msgstr "Debe seleccionar una tarjeta SIM"
+msgstr "Deves seletzionare una carta SIM"
 
 #. TRANSLATORS: %1 is the SIM card name and %2 is the timestamp
 #: ../src/qml/AccountSectionDelegate.qml:77
 #, qt-format
 msgid "You switched to %1 @ %2"
-msgstr "Ha cambiado a %1 el %2"
-
-#~ msgid "Create new"
-#~ msgstr "Crear nuevo"
-
-#~ msgid "Switch to default SIM:"
-#~ msgstr "Cambiar a la SIM predeterminada:"
-
-#~ msgid "Send"
-#~ msgstr "Enviar"
-
-#~ msgid "Later"
-#~ msgstr "Luego"
-
-#~ msgid ""
-#~ "Select a default SIM for all outgoing messages. You can always alter your "
-#~ "choice in <a href=\"system_settings\">System Settings</a>."
-#~ msgstr ""
-#~ "Elija la tarjeta SIM predeterminada para todos los mensajes que envíe. "
-#~ "Podrá cambiar la opción en <a href=\"system_settings\">Configuración del "
-#~ "sistema</a>."
-
-#~ msgid "+ Create New"
-#~ msgstr "+ Crear nuevo"
+msgstr ""

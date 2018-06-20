@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: messaging-app\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-21 11:02-0300\n"
-"PO-Revision-Date: 2015-08-05 04:43+0000\n"
-"Last-Translator: Tiago Hillebrandt <tiagohillebrandt@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2018-05-29 18:04+0000\n"
+"Last-Translator: Alexandre de Paula Bastos <xandebastos@yahoo.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<https://translate.ubports.com/projects/ubports/messaging-app/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2016-12-13 05:38+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
-"Language: pt_BR\n"
 
 #. TRANSLATORS: %1 is the first recipient the message is sent to, %2 is the count of remaining recipients
 #: ../src/qml/ThreadDelegate.qml:71
@@ -52,7 +53,7 @@ msgstr "+"
 
 #: ../src/qml/AudioRecordingBar.qml:156
 msgid "<<< Swipe to cancel"
-msgstr ""
+msgstr "<<< deslize para cancelar"
 
 #: ../src/qml/MessageInfoDialog.qml:60
 msgid "Accepted"
@@ -68,14 +69,14 @@ msgstr "Adicionar destinatário"
 
 #: ../src/qml/NewRecipientPage.qml:81
 msgid "All"
-msgstr "Tudo"
+msgstr "Todas"
 
 #: ../src/qml/ThreadDelegate.qml:115
 #, qt-format
 msgid "Attachment: %1 audio clip"
 msgid_plural "Attachments: %1 audio clips"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Anexo: %1 clipe de áudio"
+msgstr[1] "Anexos: %1 clipes de áudio"
 
 #: ../src/qml/ThreadDelegate.qml:112
 #, qt-format
@@ -111,19 +112,19 @@ msgstr "Anexar áudio não é suportado"
 
 #: ../src/qml/Messages.qml:1061
 msgid "Away"
-msgstr ""
+msgstr "Ausente"
 
 #: ../src/qml/NewRecipientPage.qml:68
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 #: ../src/qml/Messages.qml:1063
 msgid "Busy"
-msgstr ""
+msgstr "Ocupado"
 
 #: ../src/qml/Messages.qml:689 ../src/qml/Messages.qml:783
 msgid "Call"
-msgstr "Chamar"
+msgstr "Chamada"
 
 #: ../src/qml/AttachmentDelegates/Previewer.qml:62
 #: ../src/qml/GroupChatInfoPage.qml:323 ../src/qml/MainPage.qml:131
@@ -177,7 +178,7 @@ msgstr "Não perguntar novamente"
 
 #: ../src/qml/Dialogs/FileSizeWarningDialog.qml:60
 msgid "Don't show again"
-msgstr ""
+msgstr "Não mostrar novamente"
 
 #: ../src/qml/MessagingContactViewPage.qml:73
 msgid "Edit"
@@ -193,7 +194,7 @@ msgstr "Falhou"
 
 #: ../src/qml/SendMessageValidator.qml:219
 msgid "Failed to send the message"
-msgstr ""
+msgstr "Falha ao enviar a mensagem"
 
 #: ../src/qml/MessageStatusIcon.qml:75
 msgid "Failed!"
@@ -205,7 +206,7 @@ msgstr "Favoritos"
 
 #: ../src/qml/Dialogs/FileSizeWarningDialog.qml:26
 msgid "File size warning"
-msgstr ""
+msgstr "Aviso de tamanho de arquivo"
 
 #: ../src/qml/AttachmentDelegates/DefaultDelegate.qml:33
 msgid "File type not supported"
@@ -213,7 +214,7 @@ msgstr "Tipo de arquivo não suportado"
 
 #: ../src/qml/MessageDelegate.qml:157
 msgid "Forward"
-msgstr ""
+msgstr "Encaminha"
 
 #: ../src/qml/MessageInfoDialog.qml:97
 msgid "From"
@@ -240,7 +241,7 @@ msgstr ""
 
 #: ../src/qml/AttachmentPanel.qml:104
 msgid "Image"
-msgstr ""
+msgstr "Imagem"
 
 #: ../src/qml/AttachmentDelegates/PreviewerImage.qml:37
 msgid "Image Preview"
@@ -253,11 +254,11 @@ msgstr "Informações"
 
 #: ../src/qml/Messages.qml:272 ../src/qml/SendMessageValidator.qml:210
 msgid "It is not possible to send messages in flight mode"
-msgstr ""
+msgstr "Não é possível enviar mensagens no modo avião"
 
 #: ../src/qml/SendMessageValidator.qml:218
 msgid "It is not possible to send the message"
-msgstr ""
+msgstr "Não é possível enviar a mensagem"
 
 #: ../src/qml/ComposeBar.qml:457 ../src/qml/MessageDelegate.qml:166
 msgid "MMS"
@@ -301,7 +302,7 @@ msgstr "Nova mensagem"
 
 #: ../src/qml/MainPage.qml:109 ../src/qml/MainPage.qml:222
 msgid "New message"
-msgstr ""
+msgstr "Nova mensagem"
 
 #: ../src/qml/Dialogs/EmptyGroupWarningDialog.qml:40
 #: ../src/qml/Dialogs/MMSBroadcastDialog.qml:35
@@ -312,7 +313,7 @@ msgstr "Não"
 
 #: ../src/qml/Messages.qml:277 ../src/qml/SendMessageValidator.qml:215
 msgid "No SIM card"
-msgstr ""
+msgstr "Nenhum cartão SIM"
 
 #: ../src/qml/Messages.qml:274 ../src/qml/SendMessageValidator.qml:212
 msgid "No SIM card selected"
@@ -324,11 +325,11 @@ msgstr "Sem rede"
 
 #: ../src/qml/Dialogs/NoMicrophonePermission.qml:26
 msgid "No permission to access microphone"
-msgstr ""
+msgstr "Não há permissão para acessar o microfone"
 
 #: ../src/qml/Messages.qml:1059
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 #: ../src/qml/Dialogs/FileSizeWarningDialog.qml:45
 #: ../src/qml/Dialogs/NoMicrophonePermission.qml:49
@@ -338,7 +339,7 @@ msgstr "Ok"
 
 #: ../src/qml/Messages.qml:1057
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 #: ../src/qml/MessageInfoDialog.qml:66 ../src/qml/ParticipantDelegate.qml:45
 msgid "Pending"
@@ -349,10 +350,12 @@ msgid ""
 "Please grant access on <a href=\"system_settings\">System Settings &gt; "
 "Security &amp; Privacy</a>."
 msgstr ""
+"Conceda acesso em <a href=\"system_settings\">Configurações do sistema &gt; "
+"Segurança &amp; Privacidade</a>."
 
 #: ../src/qml/Messages.qml:278 ../src/qml/SendMessageValidator.qml:216
 msgid "Please insert a SIM card and try again."
-msgstr ""
+msgstr "Insira um cartão SIM e tente novamente."
 
 #: ../src/qml/Dialogs/SimLockedDialog.qml:37
 msgid ""
@@ -381,7 +384,7 @@ msgstr "Remover"
 
 #: ../src/qml/ListItemDemo.qml:154 ../src/qml/MessageDelegate.qml:141
 msgid "Retry"
-msgstr "Repetir"
+msgstr "Tentar novamente"
 
 #: ../src/qml/Dialogs/SimLockedDialog.qml:26
 msgid "SIM Card is locked"
@@ -403,7 +406,7 @@ msgstr "Pesquisar"
 
 #: ../src/qml/MainPage.qml:56 ../src/qml/NewRecipientPage.qml:97
 msgid "Search..."
-msgstr "Pesquisar..."
+msgstr "Procurar..."
 
 #: ../src/qml/MessageInfoDialog.qml:114
 msgid "Sent"
@@ -421,7 +424,7 @@ msgstr "Compartilhar"
 
 #: ../src/qml/MessageInfoDialog.qml:129
 msgid "Status"
-msgstr "Estado"
+msgstr "Situação"
 
 #: ../src/qml/ListItemDemo.qml:227
 msgid "Swipe to delete"
@@ -446,7 +449,7 @@ msgstr "Nenhuma rede encontrada em %1"
 
 #: ../src/qml/Dialogs/NoNetworkDialog.qml:29
 msgid "There is currently no network."
-msgstr "Rede não disponível"
+msgstr "Nenhuma rede encontrada."
 
 #: ../src/qml/MessageInfoDialog.qml:103
 msgid "To"
@@ -466,7 +469,7 @@ msgstr "Tipo"
 
 #: ../src/qml/Messages.qml:1048
 msgid "Typing.."
-msgstr ""
+msgstr "Digitando.."
 
 #: ../src/qml/MessageInfoDialog.qml:72 ../src/qml/MessageInfoDialog.qml:75
 msgid "Unknown"
@@ -479,7 +482,7 @@ msgstr "Contato desconhecido"
 
 #: ../src/qml/AttachmentPanel.qml:117
 msgid "Video"
-msgstr ""
+msgstr "Vídeo"
 
 #: ../src/qml/AttachmentDelegates/PreviewerVideo.qml:32
 msgid "Video Preview"
@@ -495,7 +498,7 @@ msgstr ""
 
 #: ../src/qml/ListItemDemo.qml:133
 msgid "Welcome to your Ubuntu messaging app."
-msgstr "Bem-vindo ao seu aplicativo de mensagens do Ubuntu"
+msgstr "Bem-vindo ao seu aplicativo de mensagens do Ubuntu."
 
 #: ../src/qml/ComposeBar.qml:435
 msgid "Write a message..."
@@ -517,14 +520,16 @@ msgid ""
 "You are trying to send big files (over 300Kb). Some operators might not be "
 "able to send it."
 msgstr ""
+"Você está tentando enviar arquivos grandes (mais de 300Kb). Algumas "
+"operadoras podem não ser capazes de enviá-lo."
 
 #: ../src/qml/Messages.qml:271 ../src/qml/SendMessageValidator.qml:209
 msgid "You have to disable flight mode"
-msgstr ""
+msgstr "Você precisa desativar o modo avião"
 
 #: ../src/qml/ComposeBar.qml:164
 msgid "You have to press and hold the record icon"
-msgstr ""
+msgstr "Você deve pressionar e segurar o ícone do registro"
 
 #: ../src/qml/Messages.qml:275 ../src/qml/SendMessageValidator.qml:213
 msgid "You need to select a SIM card"

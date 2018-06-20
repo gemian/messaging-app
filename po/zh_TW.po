@@ -6,17 +6,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: messaging-app\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-21 11:02-0300\n"
-"PO-Revision-Date: 2015-03-01 11:16+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"PO-Revision-Date: 2018-05-11 07:28+0000\n"
+"Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
+"Language-Team: Chinese (Traditional) "
+"<https://translate.ubports.com/projects/ubports/messaging-app/zh_Hant/>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2016-12-13 05:38+0000\n"
-"X-Generator: Launchpad (build 18293)\n"
 
 #. TRANSLATORS: %1 is the first recipient the message is sent to, %2 is the count of remaining recipients
 #: ../src/qml/ThreadDelegate.qml:71
@@ -48,7 +50,7 @@ msgstr "+"
 
 #: ../src/qml/AudioRecordingBar.qml:156
 msgid "<<< Swipe to cancel"
-msgstr "<<< 滑動來取消"
+msgstr "<<< 滑動以取消"
 
 #: ../src/qml/MessageInfoDialog.qml:60
 msgid "Accepted"
@@ -64,7 +66,7 @@ msgstr "加入收件人"
 
 #: ../src/qml/NewRecipientPage.qml:81
 msgid "All"
-msgstr "所有"
+msgstr "全部"
 
 #: ../src/qml/ThreadDelegate.qml:115
 #, qt-format
@@ -110,7 +112,7 @@ msgstr "返回"
 
 #: ../src/qml/Messages.qml:1063
 msgid "Busy"
-msgstr "正忙"
+msgstr "忙碌中"
 
 #: ../src/qml/Messages.qml:689 ../src/qml/Messages.qml:783
 msgid "Call"
@@ -183,7 +185,7 @@ msgstr "失敗"
 
 #: ../src/qml/SendMessageValidator.qml:219
 msgid "Failed to send the message"
-msgstr ""
+msgstr "傳送訊息失敗"
 
 #: ../src/qml/MessageStatusIcon.qml:75
 msgid "Failed!"
@@ -226,7 +228,9 @@ msgstr "群組 (%1)"
 msgid ""
 "If you wish to edit your SIM and other mobile preferences, please visit <a "
 "href=\"system_settings\">System Settings</a>."
-msgstr "若您想要編輯 SIM 和其他行動裝置偏好設定，請前往「<a href=\"system_settings\">系統設定值</a>」。"
+msgstr ""
+"若您想要編輯 SIM 和其他行動裝置偏好設定，請前往「<a href=\"system_settings\">"
+"系統設定值</a>」。"
 
 #: ../src/qml/AttachmentPanel.qml:104
 msgid "Image"
@@ -243,11 +247,11 @@ msgstr "資訊"
 
 #: ../src/qml/Messages.qml:272 ../src/qml/SendMessageValidator.qml:210
 msgid "It is not possible to send messages in flight mode"
-msgstr ""
+msgstr "於飛航模式下無法傳送訊息"
 
 #: ../src/qml/SendMessageValidator.qml:218
 msgid "It is not possible to send the message"
-msgstr ""
+msgstr "無法傳送訊息"
 
 #: ../src/qml/ComposeBar.qml:457 ../src/qml/MessageDelegate.qml:166
 msgid "MMS"
@@ -263,7 +267,7 @@ msgstr "訊息"
 
 #: ../src/messaging-app.desktop.in.in.h:4
 msgid "Messages;SMS;MMS;Text Messages;Text"
-msgstr "Messages;SMS;MMS;Text Messages;Text"
+msgstr "Messages;SMS;MMS;Text Messages;Text;訊息;簡訊"
 
 #: ../src/messaging-app.desktop.in.in.h:1
 msgid "Messaging"
@@ -298,7 +302,7 @@ msgstr "新訊息"
 #: ../src/qml/Dialogs/MMSEnableDialog.qml:35
 #: ../src/qml/Dialogs/SetDefaultSIMCardDialog.qml:39
 msgid "No"
-msgstr "沒有"
+msgstr "否"
 
 #: ../src/qml/Messages.qml:277 ../src/qml/SendMessageValidator.qml:215
 msgid "No SIM card"
@@ -328,7 +332,7 @@ msgstr "確定"
 
 #: ../src/qml/Messages.qml:1057
 msgid "Online"
-msgstr "在線"
+msgstr "上線"
 
 #: ../src/qml/MessageInfoDialog.qml:66 ../src/qml/ParticipantDelegate.qml:45
 msgid "Pending"
@@ -398,7 +402,7 @@ msgstr "送出"
 
 #: ../src/qml/MainPage.qml:101 ../src/qml/SettingsPage.qml:25
 msgid "Settings"
-msgstr "設定值"
+msgstr "設定"
 
 #: ../src/qml/AttachmentDelegates/Previewer.qml:93
 #: ../src/qml/AttachmentDelegates/PreviewerMultipleContacts.qml:99
@@ -412,11 +416,11 @@ msgstr "狀態"
 
 #: ../src/qml/ListItemDemo.qml:227
 msgid "Swipe to delete"
-msgstr "右滑刪除"
+msgstr "向此滑動來刪除"
 
 #: ../src/qml/ListItemDemo.qml:177
 msgid "Swipe to reveal actions"
-msgstr "左滑顯示功能"
+msgstr "向此滑動來顯示功能"
 
 #: ../src/qml/MessageInfoDialog.qml:56
 msgid "Temporarily Failed"
@@ -457,7 +461,7 @@ msgstr "打字中.."
 
 #: ../src/qml/MessageInfoDialog.qml:72 ../src/qml/MessageInfoDialog.qml:75
 msgid "Unknown"
-msgstr "不明"
+msgstr "未知"
 
 #: ../src/qml/AttachmentDelegates/ContactDelegate.qml:48
 #: ../src/qml/ThumbnailContact.qml:44
@@ -507,15 +511,15 @@ msgstr "您試圖傳送大型檔案（超過 300Kb）。有些服務商可能無
 
 #: ../src/qml/Messages.qml:271 ../src/qml/SendMessageValidator.qml:209
 msgid "You have to disable flight mode"
-msgstr ""
+msgstr "你需要關閉飛航模式"
 
 #: ../src/qml/ComposeBar.qml:164
 msgid "You have to press and hold the record icon"
-msgstr "您必須按住錄音圖示"
+msgstr "您需要按住錄音圖示不放"
 
 #: ../src/qml/Messages.qml:275 ../src/qml/SendMessageValidator.qml:213
 msgid "You need to select a SIM card"
-msgstr "要選取 SIM 卡"
+msgstr "需要選取 SIM 卡"
 
 #: ../src/qml/AccountSectionDelegate.qml:96
 #, qt-format
