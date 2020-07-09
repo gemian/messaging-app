@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.2
+import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Ubuntu.History 0.1
 import Ubuntu.Telephony 0.1
@@ -33,10 +33,10 @@ BorderImage {
     property alias sender: senderName.text
     property string messageText
     property var messageTimeStamp
-    property int maxDelegateWidth: units.gu(27)
+    readonly property int maxDelegateWidth: units.gu(27)
     property string accountName
     property var account
-    property var _accountRegex: account && (account.selfContactId != "") ? new RegExp('\\b' + account.selfContactId + '\\b', 'g') : null
+    property var _accountRegex: account && (account.selfContactId != "" && !account.selfContactId.includes("+")) ? new RegExp('\\b' + account.selfContactId + '\\b', 'g') : null
     property bool isMultimedia: false
     // FIXME for now we just display the delivery status if it's greater than Accepted
     property bool showDeliveryStatus: false
@@ -89,15 +89,15 @@ BorderImage {
 
     property string color: {
         if (error) {
-            return "red"
+            return theme.name === "Ubuntu.Components.Themes.SuruDark" ? "lightRed" : "red"
         } else if (sending) {
-            return "grey"
+            return theme.name === "Ubuntu.Components.Themes.SuruDark" ? "lightGrey" : "grey"
         } else if (messageIncoming) {
-            return "white"
+            return theme.name === "Ubuntu.Components.Themes.SuruDark" ? "black" : "white"
         } else if (isMultimedia) {
-            return "blue"
+            return theme.name === "Ubuntu.Components.Themes.SuruDark" ? "lightBlue" : "blue"
         } else {
-            return "green"
+            return theme.name === "Ubuntu.Components.Themes.SuruDark" ? "lightGreen" : "green"
         }
     }
     property bool completed
@@ -144,15 +144,27 @@ BorderImage {
             left: parent.left
             leftMargin: units.gu(1)
         }
-        width: paintedWidth > maxDelegateWidth ? maxDelegateWidth : undefined
         fontSize: "medium"
         height: contentHeight
         onLinkActivated:  Qt.openUrlExternally(link)
         text: root.parseText(messageText)
-        textFormat: Text.RichText
+
+        // It needs to be Text.StyledText to use linkColor: https://api-docs.ubports.com/sdk/apps/qml/QtQuick/Text.html#sdk-qtquick-text-linkcolor
+        textFormat: Text.StyledText
         wrapMode: Text.Wrap
         color: root.messageIncoming ? Theme.palette.normal.backgroundText :
                                       Theme.palette.normal.positiveText
+        Component.onCompleted: {
+            if (textLabel.paintedWidth > maxDelegateWidth) {
+                width = maxDelegateWidth
+            } else {
+                width = undefined
+            }
+        }
+
+        linkColor: isMultimedia
+            ? theme.palette.normal.activityText
+            : theme.palette.normal.activity
     }
 
     Row {

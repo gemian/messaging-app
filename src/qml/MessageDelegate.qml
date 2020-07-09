@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.2
+import QtQuick 2.9
 import Ubuntu.Components 1.3
 //import Ubuntu.Contacts 0.1
 import Ubuntu.History 0.1
@@ -45,7 +45,15 @@ ListItem {
     property bool incoming: (messageData && messageData.senderId !== "self")
     property string accountLabel: ""
     property bool isMultimedia: false
-    property var _lastItem: textBubble.visible ? textBubble : attachmentsLoader.item.lastItem
+    property var _lastItem: {
+        if (textBubble.visible) {
+            return textBubble
+        }
+        else if ( attachmentsLoader && attachmentsLoader.item ) {
+            return attachmentsLoader.item.lastItem
+        }
+        else return null
+    }
     property alias account: textBubble.account
 
     swipeEnabled: !(attachmentsLoader.item && attachmentsLoader.item.swipeLocked)
@@ -123,7 +131,7 @@ ListItem {
         ]
         delegate: Rectangle {
             width: height + units.gu(4.5)
-            color: UbuntuColors.red
+            color: theme.palette.normal.negative
             Icon {
                 name: action.iconName
                 width: units.gu(3)
@@ -172,7 +180,8 @@ ListItem {
                                        "timestamp": messageData.timestamp,
                                        "textReadTimestamp": messageData.textReadTimestamp,
                                        "status": messageData.textMessageStatus,
-                                       "participants": messages.participants}
+                                       "participants": messages.participants,
+                                       "accountLabel": accountLabel.length > 0 ? accountLabel: i18n.tr("Myself")}
                     messageInfoDialog.showMessageInfo(messageInfo)
                 }
             }

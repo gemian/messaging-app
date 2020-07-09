@@ -27,7 +27,7 @@ import Ubuntu.History 0.1
 import messagingapp.private 0.1
 import "Stickers"
 
-Item {
+Flickable {
     id: composeBar
 
     property bool showContents: true
@@ -46,7 +46,11 @@ Item {
     property bool returnToSend: false
     property bool enableAttachments: true
     property alias participants: participantPopover.participants
+    property string threadId: ""
+    property QtObject presenceRequest : null
     readonly property alias textArea: messageTextArea
+    readonly property int maxSMSLength: 160
+    readonly property int maxSMSLengthMultiple: 153
 
     onRecordingChanged: {
         if (recording) {
@@ -61,10 +65,6 @@ Item {
     property int _defaultHeight: charCount.height + textEntry.height + attachmentPanel.height + stickersPicker.height + units.gu(2)
     property int messageCount: 0
     property int smsLength: 160
-
-    Component.onDestruction: {
-        composeBar.reset()
-    }
 
     function forceFocus() {
         if (showContents)
@@ -110,10 +110,10 @@ Item {
         }
     }
 
-    anchors.bottom: isSearching ? parent.bottom : keyboard.top
-    anchors.left: parent.left
-    anchors.right: parent.right
     height: showContents ? Math.min(_defaultHeight, maxHeight) : 0
+    contentHeight: textEntry.height
+    contentY: contentHeight * ( 1.0 - visibleArea.heightRatio )
+
     visible: showContents
     clip: true
 
@@ -134,6 +134,16 @@ Item {
 
         Popover {
             id: popover
+
+            function show() {
+                visible = true;
+                __foreground.show();
+                //don't dismiss OSK when on portrait
+                if (messages.landscape) {
+                    __foreground.forceActiveFocus();
+                }
+            }
+
             Column {
                 id: containerLayout
                 anchors {
@@ -199,8 +209,8 @@ Item {
         Behavior on opacity { UbuntuNumberAnimation {} }
         visible: opacity > 0 && composeBar.enableAttachments
 
-        width: visible ? childrenRect.width : 0
-        height: visible ? childrenRect.height : 0
+        width: opacity > 0 ? childrenRect.width : 0
+        height: opacity > 0 ? childrenRect.height : 0
 
         anchors {
             left: parent.left
@@ -383,9 +393,8 @@ Item {
                         target: status == Loader.Ready ? item : null
                         ignoreUnknownSignals: true
                         onPressAndHold: {
-                            Qt.inputMethod.hide()
                             _activeAttachmentIndex = index
-                            PopupUtils.open(attachmentPopover, parent)
+                            PopupUtils.open(attachmentPopover, item)
                         }
                     }
                 }
@@ -410,9 +419,12 @@ Item {
                 left: parent.left
                 right: parent.right
             }
-            TextArea {
+            DraftTextArea {
                 id: messageTextArea
                 objectName: "messageTextArea"
+
+                draftKey: composeBar.threadId
+
 
                 property bool autoCompleteLock: false
 
@@ -511,8 +523,8 @@ Item {
                     } else if (telepathyHelper.ready) {
                         var account = telepathyHelper.accountForId(presenceRequest.accountId)
                         if (account &&
-                                (presenceRequest.type != PresenceRequest.PresenceTypeUnknown &&
-                                 presenceRequest.type != PresenceRequest.PresenceTypeUnset) &&
+                                (presenceRequest.type !== PresenceRequest.PresenceTypeUnknown &&
+                                 presenceRequest.type !== PresenceRequest.PresenceTypeUnset) &&
                                 account.protocolInfo.serviceName !== "") {
                             console.log(presenceRequest.accountId)
                             console.log(presenceRequest.type)
@@ -554,23 +566,29 @@ Item {
                     bottomMargin: visible ? units.gu(.5) : 0
                 }
                 height: visible ? units.gu(2) : 0
+                readonly property int smsLength: length<=maxSMSLength ? maxSMSLength : maxSMSLengthMultiple
+                readonly property int digitsLeft: smsCount*smsLength - length
+                property int length: {
+                    var str = messageTextArea.displayText
+                    var m = encodeURIComponent(str).match(/%[89ABab]/g)
+                    return str.length + (m ? m.length : 0)
+                }
+                property int smsCount: Math.ceil(length/smsLength)
                 text: {
                     if ((attachments.count > 0) || usingMMS) {
-                        i18n.tr("MMS")
+                        return i18n.tr("MMS")
                     } else {
-                        messageTextArea.length + " (" + messageCount + ")"
+                        return "%1 / %2".arg(digitsLeft).arg(smsCount)
                     }
                 }
-                fontSize: "small"
+                textSize: Label.XSmall
                 font.italic: messageTextArea.inputMethodComposing && (attachments.count == 0) && !usingMMS
                 color: Theme.palette.normal.backgroundTertiaryText
-                // hide this option for now
-                //visible: msgSettings.showCharacterCount && (messageTextArea.lineCount > 1)
-                visible: false
+                visible: messageTextArea.displayText.length > 0 && (smsCount > 1 || digitsLeft <= 10)
             }
         }
     }
-    
+
     AttachmentPanel {
         id: attachmentPanel
 
@@ -596,7 +614,8 @@ Item {
         }
 
         onExpandedChanged: {
-            if (expanded && Qt.inputMethod.visible) {
+            //in landscape mode, we don't have enough place to display the attachment, lets dismiss keyboard
+            if (expanded && Qt.inputMethod.visible && (messages.landscape)) {
                 attachmentPanel.forceActiveFocus()
             }
         }
@@ -678,7 +697,7 @@ Item {
         anchors.verticalCenter: textEntry.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: units.gu(2)
-        iconSource: Qt.resolvedUrl("./assets/send.svg")
+        iconName: "send"
         enabled: !recordButton.enabled
         function processSend() {
             // make sure we flush everything we have prepared in the OSK preedit

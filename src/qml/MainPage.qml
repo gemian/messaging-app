@@ -194,7 +194,7 @@ Page {
             ]
             PropertyChanges {
                 target: pageHeader
-                title: " "
+                title: i18n.tr("Select")
                 leadingActions: selectionState.leadingActions
                 trailingActions: selectionState.trailingActions
             }
@@ -225,6 +225,16 @@ Page {
             }
         }
     }
+
+     NumberAnimation {
+            id:threadMoveAnim
+            running: threadList.currentIndex == 0
+            target: threadList.currentItem;
+            properties: "opacity";
+            duration: 500
+            easing.type: Easing.InOutQuad;
+            from: 0; to:1
+        }
 
     MultipleSelectionListView {
         id: threadList
@@ -268,12 +278,14 @@ Page {
             }
         }
 
-        listDelegate: ThreadDelegate {            
+
+        listDelegate: ThreadDelegate {
             id: threadDelegate
 
             function show()
             {
-                var properties = model.properties
+                var properties = {}
+                properties["accountId"] = model.properties.accountId
                 properties["keyboardFocus"] = false
                 properties["threads"] = model.threads
                 properties["presenceRequest"] = threadDelegate.presenceItem
@@ -281,9 +293,6 @@ Page {
                     properties["scrollToEventId"] = displayedEvent.eventId
                 }
                 properties["chatEntry"] = chatEntry
-                delete properties["participants"]
-                delete properties["localPendingParticipants"]
-                delete properties["remotePendingParticipants"]
                 mainView.showMessagesView(properties)
             }
 
@@ -296,9 +305,9 @@ Page {
                 right: parent.right
             }
             compactView: mainView.compactView
-            selectMode: threadList.isInSelectionMode
+            selectionMode: threadList.isInSelectionMode
             selected: {
-                if (selectMode) {
+                if (selectionMode) {
                     return threadList.isSelected(threadDelegate)
                 }
                 return false
@@ -306,25 +315,33 @@ Page {
 
             searchTerm: mainPage.searching ? searchField.text : ""
 
-            onClicked: {
+            onItemClicked: {
                 if (threadList.isInSelectionMode) {
                     if (!threadList.selectItem(threadDelegate)) {
                         threadList.deselectItem(threadDelegate)
                     }
+                }else {
+                    if (pageStack.columns <= 1) {
+                        show()
+                    }
                 }
+
                 threadList.currentIndex = index
 
-                if (pageStack.columns <= 1) {
-                    show()
-                }
+
             }
-            onPressAndHold: {
-                threadList.startSelection()
-                threadList.selectItem(threadDelegate)
+            onItemPressAndHold: {
+                if (!threadList.isInSelectionMode) {
+                    threadList.startSelection()
+                    threadList.selectItem(threadDelegate)
+                }else{
+                    threadList.cancelSelection()
+                }
+
+
             }
 
-            ChatEntry {
-                id: chatEntry
+            chatEntry : ChatEntry {
                 chatType: model.properties.chatType
                 participantIds: model.properties.participantIds ? model.properties.participantIds : []
                 chatId: model.properties.threadId
@@ -332,7 +349,14 @@ Page {
                 autoRequest: false
             }
 
+
             opacity: !groupChat || chatEntry.active ? 1.0 : 0.5
+
+            ListView.onRemove: SequentialAnimation {
+                PropertyAction { target: threadDelegate; property: "ListView.delayRemove"; value: true }
+                NumberAnimation { target: threadDelegate; property: "height"; to: 0; duration: 250; easing.type: Easing.InOutQuad }
+                PropertyAction { target: threadDelegate; property: "ListView.delayRemove"; value: false }
+            }
         }
         onSelectionDone: {
             var threadsToRemove = []
@@ -397,19 +421,13 @@ Page {
     Loader {
         id: bottomEdgeLoader
         asynchronous: true
-        /* FIXME: would be even more efficient to use setSource() to
-           delay the compilation step but a bug in Qt prevents us.
-           Ref.: https://bugreports.qt.io/browse/QTBUG-54657
-        */
-        sourceComponent: MessagingBottomEdge {
-            parent: mainPage
-            enabled: !mainView.dualPanel
-            hint.visible: enabled
-        }
+        active: !mainView.dualPanel
+        source: Qt.resolvedUrl('MessagingBottomEdge.qml')
+        onLoaded: bottomEdgeLoader.item.parent = mainPage
     }
 
     onActiveFocusChanged: {
-        if (activeFocus) {
+        if (activeFocus && threadList.currentItem !== null && threadList.currentItem >= 0 ) {
             if (threadList.currentItem) {
                 threadList.currentItem.forceActiveFocus()
             } else {

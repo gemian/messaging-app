@@ -35,11 +35,11 @@ Column {
     property bool isMultimedia: false
     property bool swipeLocked: {
         for (var i=0; i < attachmentsView.children.length; i++) {
-            if (attachmentsView.children[i].item && !attachmentsView.children[i].item.swipeLocked) {
-                return false
+            if (attachmentsView.children[i].item && attachmentsView.children[i].item.swipeLocked) {
+                return true
             }
         }
-        return true
+        return false
     }
     property string messageText: ""
     property var lastItem: children.length > 0 ? children[children.length - 1] : null
@@ -57,6 +57,7 @@ Column {
             properties["attachment"] = attachment.item.attachment
             properties["thumbnail"] = attachment.item
             mainStack.addPageToCurrentColumn(messages, Qt.resolvedUrl(attachment.item.previewer), properties)
+            Qt.inputMethod.hide()
         }
     }
 

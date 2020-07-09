@@ -16,18 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.2
+import QtQuick 2.9
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
+import Ubuntu.Components.ListItems 1.3 as ListItem
 import Ubuntu.Telephony 0.1
 //import Ubuntu.Contacts 0.1
 import QtContacts 5.0
 import Ubuntu.History 0.1
 import "dateUtils.js" as DateUtils
 
-ListItem {
+ListItemWithActions {
     id: delegate
 
+    property QtObject chatEntry: null
     property bool compactView: false
     property var participant: participants ? participants[0] : {}
     property bool groupChat: chatType == HistoryThreadModel.ChatTypeRoom || participants.length > 1
@@ -160,18 +162,8 @@ ListItem {
     anchors.left: parent.left
     anchors.right: parent.right
     height: units.gu(8)
-    divider.visible: false
-    contentItem.anchors {
-        leftMargin: units.gu(2)
-        rightMargin: units.gu(2)
-        topMargin: units.gu(1)
-        bottomMargin: units.gu(1)
-    }
-    contentItem.clip: false
-    highlightColor: "transparent"
 
-    leadingActions: ListItemActions {
-        actions: [
+    leftSideAction:
             Action {
                 iconName: "delete"
                 text: i18n.tr("Delete")
@@ -179,19 +171,6 @@ ListItem {
                     mainView.removeThreads(model.threads)
                 }
             }
-        ]
-        delegate: Rectangle {
-            width: height + units.gu(2)
-            color: UbuntuColors.red
-            Icon {
-                name: action.iconName
-                width: units.gu(3)
-                height: width
-                color: "white"
-                anchors.centerIn: parent
-            }
-        }
-    }
 
     Component.onCompleted: {
         if (searchTerm !== "") {
@@ -230,7 +209,7 @@ ListItem {
         visible: source != ""
         source: {
             if (isBroadcast) {
-                return Qt.resolvedUrl("assets/broadcast_icon.png")
+                return "image://theme/broadcast"
             } else if (groupChat) {
                 return "image://theme/contact-group"
             }
@@ -246,6 +225,7 @@ ListItem {
             top: avatar.top
             topMargin: units.gu(0.5)
             left: chatTypeIcon.right
+            leftMargin: units.gu(1)
             right: time.left
             rightMargin: unreadCountIndicator.width
         }
@@ -303,7 +283,7 @@ ListItem {
             if (!telepathyHelper.ready) {
                 return ""
             }
- 
+
             // for any chat room, or generic account, show the icon
             if (chatType == HistoryThreadModel.ChatTypeRoom || telepathyHelper.accountForId(model.accountId).type == AccountEntry.GenericAccount) {
                 return telepathyHelper.accountForId(model.accountId).protocolInfo.icon
@@ -367,7 +347,8 @@ ListItem {
         text: textMessage
         // avoid any kind of formatting in the text message preview
         textFormat: Text.PlainText
-        maximumLineCount: 1
+        maximumLineCount: 2
+        wrapMode: Text.Wrap
         color: Theme.palette.normal.backgroundSecondaryText
     }
 
@@ -386,9 +367,9 @@ ListItem {
         property alias presenceItem: presenceRequest
         property string latestFilter: ""
         property var searchHistoryFilter
-        property var searchHistoryFilterString: 'import Ubuntu.History 0.1; 
-            HistoryUnionFilter { 
-                %1 
+        property var searchHistoryFilterString: 'import Ubuntu.History 0.1;
+            HistoryUnionFilter {
+                %1
             }'
         property var searchIntersectionFilter: 'HistoryIntersectionFilter {
             HistoryFilter { filterProperty: "accountId"; filterValue: \'%1\' }
@@ -414,7 +395,7 @@ ListItem {
                         delegateHelper.searchHistoryFilter = Qt.createQmlObject(finalString, searchEventModelLoader)
                         latestFilter = finalString
                     }
- 
+
                     searchEventModelLoader.active = true
                 }
             } else {
@@ -424,6 +405,7 @@ ListItem {
             }
 
             delegate.height = found ? units.gu(8) : 0
+            delegate.visible = found ? true : false
         }
 
         // WORKAROUND: history-service can't filter by contact names
@@ -450,9 +432,11 @@ ListItem {
                 onCountChanged: {
                     if (count > 0) {
                         delegate.height = units.gu(8)
+                        delegate.visible = true
                         delegate.displayedEvent = eventModel.get(0)
                     } else if (searchTerm == "") {
                         delegate.height = units.gu(8)
+                        delegate.visible = true
                         delegate.displayedEvent = null
                     } else {
                         delegate.displayedEvent = null

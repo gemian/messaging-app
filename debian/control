@@ -27,7 +27,7 @@ Build-Depends: cmake,
                qml-module-qtquick2,
                qml-module-qttest,
                qtpim5-dev,
-               xvfb,
+               xvfb <!nocheck>,
                xauth,
 Standards-Version: 3.9.8
 Homepage: https://github.com/gemian/messaging-app

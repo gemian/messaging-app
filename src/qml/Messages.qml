@@ -37,14 +37,14 @@ Page {
     // this property can be overriden by the user using the account switcher,
     // in the suru divider
     property string accountId: ""
-    property var threadId: threads.length > 0 ? threads[0].threadId : ""
+    property var threadId: threads.length > 0 ? threads[0].threadId : "UNKNOWN"
     property int chatType: threads.length > 0 ? threads[0].chatType : HistoryThreadModel.ChatTypeNone
     property QtObject account: getCurrentAccount()
     property variant participants: {
-        if (chatEntry.active) {
-            return chatEntry.participants
-        } else if (threads.length > 0) {
+        if (threads.length > 0) {
             return threadInformation.participants
+        } else if (chatEntry.active) {
+            return chatEntry.participants
         }
         return []
     }
@@ -71,15 +71,12 @@ Page {
         }
         return ids
     }
-    property bool groupChat: chatType == HistoryThreadModel.ChatTypeRoom || participants.length > 1
+    property bool groupChat: chatType == HistoryThreadModel.ChatTypeRoom || (participants !== null && participants.length > 1)
     property bool keyboardFocus: true
     property alias selectionMode: messageList.isInSelectionMode
-    // FIXME: MainView should provide if the view is in portait or landscape
-    property int orientationAngle: Screen.angleBetween(Screen.primaryOrientation, Screen.orientation)
-    property bool landscape: orientationAngle == 90 || orientationAngle == 270
+    property bool landscape: width > height
     property var sharedAttachmentsTransfer: []
     property alias contactWatcher: contactWatcherInternal
-    property string text: ""
     property string scrollToEventId: ""
     property bool isSearching: scrollToEventId !== ""
     property string latestEventId: ""
@@ -121,9 +118,9 @@ Page {
         }
         var roomInfo = threadInformation.chatRoomInfo
         if (roomInfo) {
-            if (roomInfo.Title != "") {
+            if (typeof roomInfo.Title === "string" && roomInfo.Title != "") {
                 return roomInfo.Title
-            } else if (roomInfo.RoomName != "") {
+            } else if (typeof roomInfo.RoomName === "string" && roomInfo.RoomName != "") {
                 return roomInfo.RoomName
             }
         }
@@ -231,6 +228,12 @@ Page {
         return false
     }
 
+    function resetFilters(){
+        messages.participants.length = 0
+        messages.participantIds.length = 0
+        messages.threads = []
+    }
+
     function addNewThreadToFilter(newAccountId, properties) {
         var newAccount = telepathyHelper.accountForId(newAccountId)
         var matchType = HistoryThreadModel.MatchCaseSensitive
@@ -259,9 +262,10 @@ Page {
             messages.participantIds = ids;
         }
 
+        var threads = messages.threads
         if (!checkThreadInFilters(newAccountId, threadId)) {
-            messages.threads.push(thread)
-            reloadFilters = !reloadFilters
+            threads.push(thread)
+            messages.threads = threads
         }
 
         return thread
@@ -854,13 +858,22 @@ Page {
                 anchors {
                     left: parent ? parent.left : undefined
                     right: parent ? parent.right : undefined
-                    rightMargin: units.gu(2)
                     top: parent ? parent.top: undefined
-                    topMargin: units.gu(1)
+                    topMargin: parent ? (parent.height - multiRecipient.height)/2 : units.gu(1)
                 }
                 onActiveFocusChanged: {
                     if (!activeFocus && (searchListLoader.status != Loader.Ready || !searchListLoader.item.activeFocus))
                         commit()
+                }
+
+                onSelectedRecipients: function(recipientsIds) {
+                    //cleanup the filter
+                    resetFilters()
+
+                    if (recipientsIds.length === 1) {
+                        //only refresh message history for single participant, otherwise it have UI side effects (unable to add more 2 participants )
+                        addNewThreadToFilter(messages.account.accountId, {"participantIds": recipientsIds, "chatType": HistoryThreadModel.ChatTypeContact})
+                    }
                 }
 
                 KeyNavigation.down: searchListLoader.item ? searchListLoader.item : composeBar.textArea
@@ -1350,12 +1363,27 @@ Page {
         delegate: Item {
             property var threads: model.threads
             onThreadsChanged: {
+                //workaround for https://github.com/ubports/messaging-app/issues/66, model is loaded twice when sending a new message due to message status change (status = unknow and then active )
+                //make sure there is really a participants list update to avoid unecessary reloading
+                if (threadInformation.participants == null || threadInformation.participantsHasChanged(model.participants)){
+                    threadInformation.participants = model.participants
+                }
                 threadInformation.chatRoomInfo = model.chatRoomInfo
-                threadInformation.participants = model.participants
                 threadInformation.localPendingParticipants = model.localPendingParticipants
                 threadInformation.remotePendingParticipants = model.remotePendingParticipants
                 threadInformation.threads = model.threads
+
             }
+        }
+
+        function participantsHasChanged(newParticipants){
+            var oldParticipantsIds = messages.participantIds
+            if (newParticipants.length !== oldParticipantsIds.length) return true
+
+            for (var i in newParticipants) {
+                if (oldParticipantsIds.indexOf(newParticipants[i].identifier) === -1) return true
+            }
+            return false
         }
     }
 
@@ -1423,7 +1451,7 @@ Page {
         id: messageList
         objectName: "messageList"
         visible: !isSearching
-        listModel: messages.newMessage ? null : eventModel
+        listModel: eventModel
         account: messages.account
         activeFocusOnTab: false
         focus: false
@@ -1526,13 +1554,14 @@ Page {
         }
 
         participants: messages.participants
+        threadId: messages.threadId
+        presenceRequest: messages.presenceRequest
         isBroadcast: messages.isBroadcast
         returnToSend: messages.account.protocolInfo.returnToSend
         enableAttachments: messages.account.protocolInfo.enableAttachments
 
         showContents: !selectionMode && !isSearching && !chatInactiveLabel.visible
         maxHeight: messages.height - keyboard.height - screenTop.y
-        text: messages.text
         onTextChanged: {
             if (!account.protocolInfo.enableChatStates) {
                 return
@@ -1557,7 +1586,7 @@ Page {
             selfTypingTimer.restart()
 
         }
-        canSend: chatType == ChatEntry.ChatTypeRoom || participants.length > 0 || multiRecipient.recipientCount > 0 || multiRecipient.searchString !== ""
+        canSend: chatType == ChatEntry.ChatTypeRoom || (participants !== null && participants.length > 0) || multiRecipient.recipientCount > 0 || multiRecipient.searchString !== ""
         oskEnabled: messages.oskEnabled
         usingMMS: messages.account.type == AccountEntry.PhoneAccount && messages.chatType == ChatEntry.ChatTypeRoom
 
