@@ -7,4 +7,4 @@ _Keywords=Messages;SMS;MMS;Text Messages;Text
 Exec=messaging-app %u
 Terminal=false
 Icon=@CMAKE_INSTALL_PREFIX@/@MESSAGING_APP_DIR@/assets/messaging-app.png
-MimeType=x-scheme-handler/message
+MimeType=x-scheme-handler/message;
